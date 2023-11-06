@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommendation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+</head>
+<body>
+
+    <!--HEADER-->
+    <header class="header" id="home">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">Malaka</a>
+            <div class="navbar-buttons">
+                <button type="button" class="button icon-button menu-toggle-button">
+                    <i class="bx bx-menu open-icon"></i>
+                    <i class="bx bx-x close-icon"></i>
+                </button>
+                <button type="button" class="button icon-button theme-toggle-button">
+                    <i class="bx bx-toggle-left theme-off"></i>
+                    <i class="bx bx-toggle-right theme-on"></i>
+                </button>
+            </div>
+            <div class="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <span>01</span> About Me
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <span>02</span> Recommendation System
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <span>03</span> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--HERO-->
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="title main-title">
+                Ani<span class="inline-image has-sparkles"></span>Mood
+                <br>Emotion Based
+                <br>Anime<span class="has-sparkles-alt">Recommender</span>
+            </h1>
+        </div>
+    </section>
+
+    <!--ABOUT-->
+    <section class="about-me section" id="about-me">
+        <div class="container">
+
+            <div class="section-description d-grid">
+                <div class="scroll-reveal-left">
+                    <p class="description">
+                        Hi, I'm <span class="text-bold"> Malaka</span>, and this is my <span
+                        class="text-bold"> Final year</span> project <span class="text-bold">Anime Recommendation
+                        </span> system. this provide Recommendations based on <span 
+                        class="text-bold">emotions</span>. Hope you <span class="text-bold"> ENJOY!! </span>
+                    </p>
+                </div>
+                <div class="scroll-reveal-right">
+                    <div class="description-image has-sparkles">
+                        <img src="{{ url_for('static', filename='images/aboutme.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack d-grid">
+                <div class="tech-stack-item" data-tooltip="Python">
+                    <i class="bx bxl-python"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="HTML5">
+                    <i class="bx bxl-html5"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="CSS3">
+                    <i class="bx bxl-css3"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Javascript">
+                    <i class="bx bxl-javascript"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Visual Studio Code">
+                    <i class="bx bxl-visual-studio"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Flask">
+                    <i class="bx bxl-flask"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!--CAMERA-->
+    <section class="camera-container">
+        <div class="take-photo-wrp">
+            <video id="video" width="640" height="480" autoplay></video>
+            <button id="snap" onclick="snap()">Take Photo</button>
+        </div>
+        <div class="results-wrp">
+            <canvas id="canvas" width="640" height="480"></canvas>
+            <button id="getresults" onclick="getresults()">Captured Image</button>
+        </div>
+    </section>
+
+    <!--CONTACT-->
+    <section class="get-in-touch section" id="contact">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="title section-title">Get In</h2>
+                <div class="section-subtitle-container">
+                    <span class="subtitle-number has-sparkles">📞</span>
+                    <h5 class="title section-subtitle">Touch</h5>
+                </div>
+            </div>
+
+            <div class="section-description d-grid">
+                <div class="scrollreveal-left">
+                    <p class="description">
+                        If <span class="text-bold"> You</span> would like to work <span
+                        class="text-bold">together</span> on a <span class="text-bold">project
+                        </span>, please fill out the  <span 
+                        class="text-bold">form</span>. below. I can't wait to turn your
+                        <span class="text-bold">ideas</span> into <span class="text-bold">reality</span>!
+                    </p>
+                </div>
+                <div class="scroll-reveal-right">
+                    <div class="description-image has-sparkles">
+                        <img src="{{ url_for('static', filename='images/get_in_touch.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <form action="" class="contact-form">
+                    <div class="input-group">
+
+                        <div class="input">
+                            <input type="text" id="name" required>
+                            <label for="name" class="input-label">Name <span 
+                            class="required-field">*</span> </label>
+                        </div>
+
+                        <div class="input">
+                            <input type="text" id="email" required>
+                            <label for="email" class="input-label">Email <span 
+                            class="required-field">*</span> </label>
+                        </div>
+                        
+                    </div>
+
+                    <div class="input">
+                        <input type="text" id="message" required>
+                        <label for="message" class="input-label">Message <span 
+                        class="required-field">*</span></label>
+                    </div>
+
+                    <button type="submit" class="button form-button button-fill">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+
+    <footer class="footer">
+        <div class="footer-container container">
+
+            <div class="social-media">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <span>&copy; 2023 Malaka All Rights Reserved</span>
+
+            <a href="#home" class="scroll-top">
+                <i class="bx bx-chevron-up"></i>Back to top
+            </a>
+        </div>
+    </footer>
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/styles.js') }}"></script>
+ 
+</head>
+</body>
+</html>

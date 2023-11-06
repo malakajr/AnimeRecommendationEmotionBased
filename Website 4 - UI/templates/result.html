@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommendation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+</head>
+<body>
+    <!--HEADER-->
+    <header class="header" id="home">
+        <nav class="navbar container">
+            <a href="index.html" class="logo">Malaka</a>
+            <div class="navbar-buttons">
+                <button type="button" class="button icon-button menu-toggle-button">
+                    <i class="bx bx-menu open-icon"></i>
+                    <i class="bx bx-x close-icon"></i>
+                </button>
+                <button type="button" class="button icon-button theme-toggle-button">
+                    <i class="bx bx-toggle-left theme-off"></i>
+                    <i class="bx bx-toggle-right theme-on"></i>
+                </button>
+            </div>
+            <div class="menu">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="{{ url_for('index') }}" class="list-link">
+                            <span>01</span> Home
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <span>02</span> Recommendation System
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <span>03</span> Contact
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--HERO-->
+
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="title main-title">
+                Ani<span class="inline-image has-sparkles"></span>Mood
+                <br>Emotion Based
+                <br>Anime<span class="has-sparkles-alt">Recommender</span>
+            </h1>
+        </div>
+    </section>
+
+    <!--ABOUT-->
+    <section class="about-me section" id="about-me">
+        <div class="container">
+
+            <div class="section-description d-grid">
+                <div class="scroll-reveal-left">
+                    <p class="description">
+                        Hi, I'm <span class="text-bold"> Malaka</span>, and this is my <span
+                        class="text-bold"> Final year</span> project <span class="text-bold">Anime Recommendation
+                        </span> system. this provide Recommendations based on <span 
+                        class="text-bold">emotions</span>. Hope you <span class="text-bold"> ENJOY!!</span>
+                    </p>
+                </div>
+                <div class="scroll-reveal-right">
+                    <div class="description-image has-sparkles">
+                        <img src="{{ url_for('static', filename='images/result.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-stack d-grid">
+                <div class="tech-stack-item" data-tooltip="Python">
+                    <i class="bx bxl-python"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="HTML5">
+                    <i class="bx bxl-html5"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="CSS3">
+                    <i class="bx bxl-css3"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Javascript">
+                    <i class="bx bxl-javascript"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Visual Studio Code">
+                    <i class="bx bxl-visual-studio"></i>
+                </div>
+                <div class="tech-stack-item" data-tooltip="Flask">
+                    <i class="bx bxl-flask"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="result-section">
+        <h2 class="title section-title">Results</h2>
+        <p id ="emotion">Emotion: {{ emotion }}</p>
+        <p id ="gender">Gender: {{ gender }}</p>
+        <button id="recommendBtn" class="button form-button button-fill" onclick="recommendation('{{ gender }}', '{{ emotion }}')">Recommendation</button>
+    </section>
+
+
+    <section class="anime section" id="anime">
+        <div class="container">
+            <div class="section-title-container">
+                <h2 class="title section-title">Popular</h2>
+                <div class="section-subtitle-container">
+                    <span class="subtitle-number has-sparkles">😎</span>
+                    <h5 class="title section-subtitle">Animes</h5>
+                </div>
+            </div>
+
+            <div class="anime-cards d-grid">
+                <a href="#" class="anime-card anime-card-1">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/onepiece.jpg')}}" alt="">
+                    </div>
+                    <div class="card-heading">
+                        <h5 class="card-title">One Piece</h5>
+                        <span class="card-subtitile"> By: Eiichiro Oda </span>
+                    </div>
+                </a>
+                <a href="#" class="anime-card anime-card-2">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/naruto.png')}}" alt="">
+                    </div>
+                    <div class="card-heading">
+                        <h5 class="card-title">Naruto</h5>
+                        <span class="card-subtitile"> By: Maashi Kishimoto </span>
+                    </div>
+                </a>
+                <a href="#" class="anime-card anime-card-3">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/bleach.jpg')}}" alt="">
+                    </div>
+                    <div class="card-heading">
+                        <h5 class="card-title">Bleach</h5>
+                        <span class="card-subtitile"> By: Tite Kubo </span>
+                    </div>
+                </a>
+                <a href="#" class="anime-card anime-card-4">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename='images/aot.jpg')}}" alt="">
+                    </div>
+                    <div class="card-heading">
+                        <h5 class="card-title">Attack On Titan</h5>
+                        <span class="card-subtitile"> By: Hajime Isayama </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--FOOTER-->
+
+    <footer class="footer">
+        <div class="footer-container container">
+
+            <div class="social-media">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="#" class="list-link">
+                            <i class="bx bxl-linkedin"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <span>&copy; 2023 Malaka All Rights Reserved</span>
+
+            <a href="#home" class="scroll-top">
+                <i class="bx bx-chevron-up"></i>Back to top
+            </a>
+        </div>
+    </footer>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/styles.js') }}"></script>
+</head>
+</body>
+</html>
